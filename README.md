@@ -1,7 +1,9 @@
 # Analysis files for Generalised Canonical Procrustes (gcproc)
 
 Current paper(s) (Biorxiv pending)
+
 https://www.askexplain.com/generative-encoding
+
 https://www.askexplain.com/reimagining-resolution-at-single-cells
 
 A method for Generative Encoding, such as the case of Generalised Canonical Procrustes can be found at: 
