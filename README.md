@@ -1,5 +1,4 @@
-# ACM_2021_single_cell
-Analysis scripts for ACM-BCB 2021 Single Cell workshop
+# Analysis files for Generalised Canonical Procrustes (gcproc)
 
-Generative Encoding (Generalised Canonical Procrustes) can be found at: 
+A method for Generative Encoding, such as the case of Generalised Canonical Procrustes can be found at: 
 https://github.com/AskExplain/gcproc
