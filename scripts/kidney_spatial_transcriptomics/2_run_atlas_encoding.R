@@ -3,7 +3,7 @@ load("./data/internal/kidney/Mature_non_PT_parenchyma_v2.1.Rdata")
 load(file = "./data/internal/kidney/Mature_fetal_v3.Rdata")
 load("./data/internal/kidney/HVG.Rdata")
 
-devtools::load_all("~/Documents/main_files/GCP/explain-dpm/clean/gcproc_generalised_canonical_procrustes_2020_06_04/gcproc/R/")
+library(gcproc)
 
 n_genes = length(main_HVG)
 
