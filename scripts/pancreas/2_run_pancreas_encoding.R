@@ -1,5 +1,6 @@
 load("./data/workflow/load_pancreas_clean_data.Rdata")
-devtools::load_all("~/Documents/main_files/GCP/explain-dpm/clean/gcproc_generalised_canonical_procrustes_2020_06_04/gcproc//R/")
+
+library(gcproc)
 
 print("Frequency of cell types per dataset")
 print(table(data.frame(col=as.factor(colnames(cbind(b,x,s))),pch=c(rep(1,dim(b)[2]),rep(2,dim(x)[2]),rep(3,dim(s)[2])))))
