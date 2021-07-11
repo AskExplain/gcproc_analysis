@@ -26,13 +26,13 @@ x.s_cv.gcproc_cov <- gcproc::cv.gcproc(
   y = t(x),
   x = t(s),
   config = gcproc.config,
-  initial_starts = 1
+  initial_starts = 10
     )
 
 x.b_cv.gcproc_cov <- gcproc::cv.gcproc(
   y = t(x),
   x = t(b),
-  initial_starts = 1,
+  initial_starts = 10,
   config = gcproc.config,
   anchors = list(  anchor_y.sample = NULL,
                    anchor_y.feature = x.b_cv.gcproc_cov$main.parameters$v.beta,
