@@ -28,13 +28,39 @@ B <- 0.5*rot.mtx %*% A - 6
 
 
 devtools::load_all("~/Documents/main_files/GCP/explain-dpm/clean/gcproc_generalised_canonical_procrustes_2020_06_04/gcproc/R/")
+A.A_cv.gcproc <- gcproc::gcproc(
+  y = t(A),
+  x = t(A),
+  seed = 1,
+  config = list(k_dim = 15, j_dim = 2, eta = 1e-2, max_iter = 1500, min_iter = 15,
+                tol = 0.01, log = F, center = T, scale.z = T, batches = 1, cores = 1, verbose = T,
+                init = "eigen-dense")
+)
+
+B.B_cv.gcproc <- gcproc::gcproc(
+  y = t(B),
+  x = t(B),
+  seed = 1,
+  config = list(k_dim = 15, j_dim = 2, eta = 1e-2, max_iter = 1500, min_iter = 15,
+                tol = 0.01, log = F, center = T, scale.z = T, batches = 1, cores = 1, verbose = T,
+                init = "eigen-dense")
+)
+
+
 A.B_cv.gcproc <- gcproc::gcproc(
   y = t(A),
   x = t(B),
-  k_dim = 2,
-  j_dim = 2,
-  verbose = T,batches = 1,cores = 1,tol = 1e-4,eta = 1e-1,log = F,center = T,scale.z = T,init = "eigen-dense",min_iter = 5,max_iter = 350
+  seed = 1,
+  config = list(k_dim = 15, j_dim = 2, eta = 1e-2, max_iter = 1500, min_iter = 15,
+                tol = 0.01, log = F, center = T, scale.z = T, batches = 1, cores = 1, verbose = T,
+                init = "eigen-dense"),
+  anchors = list(
+    anchor_y.sample = A.A_cv.gcproc$main.parameters$alpha.L.J*A.A_cv.gcproc$main.parameters$alpha.L.K,
+    anchor_y.feature = NULL,
+    anchor_x.sample = B.B_cv.gcproc$main.parameters$alpha.L.J*B.B_cv.gcproc$main.parameters$alpha.L.K,
+    anchor_x.feature = B.B_cv.gcproc$main.parameters$u.beta*B.B_cv.gcproc$main.parameters$v.beta)
 )
+
 
 
 
@@ -67,12 +93,8 @@ procrustes <- function(A, B){
 
 procrustes.results <- procrustes(A, B)
 
-test.A <- MASS::ginv(t(A.B_cv.gcproc$main.parameters$alpha.L.K)%*%(A.B_cv.gcproc$main.parameters$alpha.L.K))%*%t(A.B_cv.gcproc$main.parameters$alpha.L.K)
-test.B <- test.A
-
-test.Y <- A.B_cv.gcproc$transformed.data$y%*%A.B_cv.gcproc$main.parameters$v.beta
-# test.R.X <- A.B_cv.gcproc$transformed.data$x%*%A.B_cv.gcproc$main.parameters$u.beta
-test.R.X <- test.A%*%(A.B_cv.gcproc$main.parameters$alpha.L.J%*%A.B_cv.gcproc$transformed.data$x%*%A.B_cv.gcproc$main.parameters$u.beta + A.B_cv.gcproc$main.parameters$intercept)
+test.Y <- A.B_cv.gcproc$transformed.data$y%*%(A.B_cv.gcproc$main.parameters$v.beta)
+test.R.X <- A.B_cv.gcproc$transformed.data$x%*%A.B_cv.gcproc$main.parameters$u.beta + (A.B_cv.gcproc$transformed.data$y%*%A.B_cv.gcproc$main.parameters$v.beta - A.B_cv.gcproc$transformed.data$x%*%A.B_cv.gcproc$main.parameters$u.beta)
 
 A.df <- as.data.frame(t(A))
 B.df <- as.data.frame(t(B))
@@ -98,7 +120,7 @@ data.plot <- ggplot(data.df, aes(x = x, y = y, color = matrix)) +
   labs(title = 'Procrustes analysis')
 
 data.plot
-ggsave("~/Documents/main_files/Explain/gencoder/project_gencoder/figures/Figure_2_Statistical_Model_for_Generative_Encoding.png",data.plot,width = 7,height = 3)
+# ggsave("~/Documents/main_files/Explain/gencoder/project_gencoder/figures/Figure_2_Statistical_Model_for_Generative_Encoding.png",data.plot,width = 7,height = 3)
 
 
 
