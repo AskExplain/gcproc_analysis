@@ -1,5 +1,6 @@
 # Full Nanostring data:  http://nanostring-public-share.s3-website-us-west-2.amazonaws.com/GeoScriptHub/
-# Selected Pixel data of Nanostring data can be found at https://github.com/AskExplain/modL
+# Selected Pixel data of Nanostring data can be found at https://github.com/AskExplain/modL/tree/main/data_nanostring_github/workflow
 # Kidney cell atlas at https://www.kidneycellatlas.org/
 
 Place all data in /data/external/kidney
+Save all output data in /data/workflow
