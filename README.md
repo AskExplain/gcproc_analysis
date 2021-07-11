@@ -1,4 +1,4 @@
-# Analysis files for Generalised Canonical Procrustes (gcproc)
+# Analysis files for Generalised Canonical Procrustes
 
 Current paper(s) (Biorxiv pending)
 
