@@ -7,6 +7,9 @@ https://www.askexplain.com/generative-encoding
 https://www.askexplain.com/reimagining-resolution-at-single-cells
 
 
+[![Dynamical network]](https://github.com/AskExplain/gcproc_analysis/blob/main/main_dynamic.gif)
+
+
 A method for Generative Encoding, such as the case of Generalised Canonical Procrustes can be found at: 
 https://github.com/AskExplain/gcproc
 
