@@ -5,20 +5,20 @@ set.seed(seed)
 
 setwd("")
 
-baron <- readRDS("./data/workflow/main_rds/baron.rds")
+baron <- readRDS("./data/external/main_rds/baron.rds")
 baron_gene_order <- order(apply(baron@assays$data$counts,1,var),decreasing=T)
 baron_gene_IDS <- baron_gene_order[1:num_genes]
 baron_gene_names <- row.names(baron)
 baron_gene_names_IDS <- baron_gene_names[baron_gene_IDS]
 
 
-segerstolpe <- readRDS("./data/workflow/main_rds/segerstolpe.rds")
+segerstolpe <- readRDS("./data/external/main_rds/segerstolpe.rds")
 segerstolpe_gene_order <- order(apply(segerstolpe@assays$data$counts,1,var),decreasing=T)
 segerstolpe_gene_IDS <- segerstolpe_gene_order[1:num_genes]
 segerstolpe_gene_names <- row.names(segerstolpe)
 
 
-xin <- readRDS("./data/workflow/main_rds/xin.rds")
+xin <- readRDS("./data/external/main_rds/xin.rds")
 xin_gene_order <- order(apply(xin@assays$data$normcounts,1,var),decreasing=T)
 xin_gene_IDS <- xin_gene_order[1:num_genes]
 xin_gene_names <- row.names(xin)
