@@ -1,6 +1,9 @@
 # Full Nanostring data:  http://nanostring-public-share.s3-website-us-west-2.amazonaws.com/GeoScriptHub/
 # Selected Pixel data of Nanostring data can be found at https://github.com/AskExplain/modL/tree/main/data_nanostring_github/workflow
 # Kidney cell atlas at https://www.kidneycellatlas.org/
+# Put raw data in: /data/external/kidney/
+# Save all output in: /data/workflow/
 
-Place all data in /data/external/kidney
-Save all output data in /data/workflow
+# Baron, Segerstolpe and Xin datasets are at: https://hemberg-lab.github.io/scRNA.seq.datasets/human/pancreas/
+# Put raw data in: /data/external/main_rds/
+# Save all output in: /data/workflow/
