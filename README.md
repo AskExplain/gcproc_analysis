@@ -1,11 +1,8 @@
 # Analysis files for Generalised Canonical Procrustes
 
-Current paper(s) (Biorxiv pending)
+Current paper
 
-https://www.askexplain.com/generative-encoding
-
-https://www.askexplain.com/reimagining-resolution-at-single-cells
-
+https://www.biorxiv.org/content/10.1101/2021.07.09.451779v1
 
 ![](main_dynamic.gif)
 
